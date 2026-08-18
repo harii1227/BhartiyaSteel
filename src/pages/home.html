@@ -1,0 +1,310 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>METALLURGIC - Precision Engineered Metals</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&amp;family=JetBrains+Mono:wght@500;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-fixed": "#ffdbca",
+                        "surface-container-highest": "#353436",
+                        "on-secondary-container": "#4a1c00",
+                        "on-tertiary-fixed-variant": "#44474a",
+                        "inverse-surface": "#e5e2e3",
+                        "on-primary": "#002c70",
+                        "secondary": "#ffb690",
+                        "precision-orange": "#F97316",
+                        "outline": "#8d909e",
+                        "surface-container-low": "#1b1b1c",
+                        "surface-bright": "#39393a",
+                        "surface-container-high": "#2a2a2b",
+                        "surface-container": "#1f1f20",
+                        "primary": "#b1c5ff",
+                        "on-surface": "#e5e2e3",
+                        "primary-container": "#0047ab",
+                        "on-tertiary-fixed": "#191c1f",
+                        "on-primary-fixed": "#001946",
+                        "background": "#131314",
+                        "error-container": "#93000a",
+                        "tertiary": "#c4c7ca",
+                        "deep-charcoal": "#1A1A1B",
+                        "on-secondary-fixed": "#341100",
+                        "on-surface-variant": "#c3c6d5",
+                        "on-primary-fixed-variant": "#00419e",
+                        "secondary-container": "#ec6a06",
+                        "outline-variant": "#434653",
+                        "surface-tint": "#b1c5ff",
+                        "inverse-on-surface": "#303031",
+                        "industrial-cobalt": "#0047AB",
+                        "on-tertiary-container": "#bdbfc3",
+                        "error": "#ffb4ab",
+                        "primary-fixed": "#dae2ff",
+                        "tertiary-fixed": "#e0e2e6",
+                        "on-error-container": "#ffdad6",
+                        "inverse-primary": "#2559bd",
+                        "tertiary-fixed-dim": "#c4c7ca",
+                        "surface-variant": "#353436",
+                        "on-background": "#e5e2e3",
+                        "on-secondary-fixed-variant": "#783200",
+                        "on-error": "#690005",
+                        "surface": "#131314",
+                        "tertiary-container": "#4b4e51",
+                        "secondary-fixed-dim": "#ffb690",
+                        "surface-dim": "#131314",
+                        "surface-glass": "rgba(255, 255, 255, 0.05)",
+                        "on-tertiary": "#2d3134",
+                        "on-secondary": "#552100",
+                        "primary-fixed-dim": "#b1c5ff",
+                        "surface-container-lowest": "#0e0e0f",
+                        "brushed-steel": "#D1D5DB",
+                        "on-primary-container": "#a5bdff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px",
+                        "section-gap-md": "80px",
+                        "section-gap-lg": "120px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-xl-mobile": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "label-caps": ["Inter"],
+                        "headline-xl": ["Inter"],
+                        "label-technical": ["JetBrains Mono"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-xl-mobile": ["40px", {"lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-xl": ["64px", {"lineHeight": "72px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                        "label-technical": ["14px", {"lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                        "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(38, 38, 38, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 0.1);
+        }
+        .metallic-gradient {
+            background: linear-gradient(135deg, #1A1A1B 0%, #2a2a2b 100%);
+        }
+        .metallic-gradient-btn {
+            background: linear-gradient(180deg, #0056D2 0%, #0047AB 100%);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background antialiased selection:bg-industrial-cobalt selection:text-white pt-20">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/80 backdrop-blur-xl dark:bg-surface/80 border-b border-brushed-steel/10 shadow-sm flex justify-between items-center px-margin-mobile md:px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-industrial-cobalt dark:text-primary text-3xl">factory</span>
+<span class="font-headline-md text-headline-md font-extrabold text-industrial-cobalt dark:text-primary uppercase tracking-tighter">BHARTIYA STEEL &amp; ALLOYS</span>
+</div>
+<div class="flex items-center gap-6">
+<nav class="hidden md:flex gap-6"><div class="relative group">
+    <button class="text-on-surface flex items-center gap-1 font-label-technical text-label-technical hover:text-industrial-cobalt transition-colors">
+        Products <span class="material-symbols-outlined text-sm">expand_more</span>
+    </button>
+    <div class="absolute left-0 mt-2 w-64 bg-surface-container-high border border-brushed-steel/10 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+        <div class="p-2 flex flex-col">
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Coils &amp; Strips</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Sheets &amp; Plates</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Pipes &amp; Tubes</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Round Bars &amp; Rods</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Flanges</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Buttweld Fittings</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">SocketWeld Fittings</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Fasteners</a>
+        </div>
+    </div>
+</div>
+<a href="#" class="text-on-surface font-label-technical text-label-technical hover:text-industrial-cobalt transition-colors">About</a>
+<a href="#" class="text-on-surface font-label-technical text-label-technical hover:text-industrial-cobalt transition-colors">Facilities</a>
+<a href="#" class="text-on-surface font-label-technical text-label-technical hover:text-industrial-cobalt transition-colors">Contact</a></nav>
+<button class="bg-industrial-cobalt text-white font-label-technical text-label-technical px-6 py-2 rounded-DEFAULT hover:opacity-90 transition-opacity active:scale-95">Request Quote</button>
+<div class="md:hidden relative group">
+    <button class="text-on-surface flex items-center gap-1 font-label-technical text-label-technical">
+        Products <span class="material-symbols-outlined text-sm">expand_more</span>
+    </button>
+    <div class="absolute right-0 mt-2 w-64 bg-surface-container-high border border-brushed-steel/10 rounded-lg shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+        <div class="p-2 flex flex-col">
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Coils &amp; Strips</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Sheets &amp; Plates</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Pipes &amp; Tubes</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Round Bars &amp; Rods</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Flanges</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Buttweld Fittings</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">SocketWeld Fittings</a>
+            <a href="#" class="px-4 py-2 text-sm text-on-surface hover:bg-industrial-cobalt hover:text-white rounded-DEFAULT transition-colors">Fasteners</a>
+        </div>
+    </div>
+</div>
+</div>
+</header>
+<main class="w-full max-w-[100vw] overflow-hidden">
+<!-- 1. Hero Section -->
+<section class="relative min-h-[85vh] flex items-center px-margin-mobile py-section-gap-md overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="bg-cover bg-center w-full h-full opacity-40" data-alt="Close-up macro photography of massive industrial steel coils in a modern, dimly lit manufacturing facility. The scene emphasizes raw metallic textures, dramatic high-contrast lighting with cool blue shadows and warm orange highlights reflecting off the polished metal surfaces. Industrial sophistication, deep charcoal tones, cinematic, hyper-realistic, 8k resolution." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCnUTXGX5O1FU9AdPxGaLSIDzPs0oUFalysBJln0B4bx4g3mGyoH5mSaj4jjMAUWStDcmrcx_LTKtQmecTQFpiU_ZKAkKpKHZLoibYmu9JKy5HH-Q4wS2i3woLlEeWXPyYVA9Xjk4KF6qO358f6ZxE94pmCgpnh8HZf7cBRXUo9js342gq_O6RIIbQGWpRyIOdGT-5fUpNHh86LfQyzkf1BS3va5usKrG7bvMTncLJ33K47UXhim8qbIQ')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-transparent"></div>
+</div>
+<div class="relative z-10 w-full flex flex-col gap-8">
+<div class="glass-panel p-6 rounded-xl inline-flex items-center gap-2 self-start border-l-4 border-l-industrial-cobalt">
+<span class="material-symbols-outlined text-precision-orange">verified</span>
+<span class="font-label-caps text-label-caps text-on-surface tracking-widest uppercase">ISO 9001:2015 Certified</span>
+</div>
+<h1 class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface">
+                    PRECISION ENGINEERED <br><span class="text-transparent bg-clip-text bg-gradient-to-r from-industrial-cobalt to-primary">METALS</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                    Delivering uncompromising quality in industrial metallurgy. We supply high-grade alloys, stainless steel, and structural metals to global engineering pioneers.
+                </p>
+<div class="flex flex-col gap-4 mt-4">
+<button class="metallic-gradient-btn text-white font-label-technical text-label-technical px-8 py-4 rounded-DEFAULT w-full flex justify-center items-center gap-2 hover:opacity-90 transition-opacity">
+                        Request a Quote <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+<button class="border-2 border-brushed-steel/20 text-on-surface font-label-technical text-label-technical px-8 py-4 rounded-DEFAULT w-full hover:bg-white/5 transition-colors">
+                        Explore Products
+                    </button>
+</div>
+</div>
+</section>
+<!-- 2. Introduction -->
+<section class="px-margin-mobile py-section-gap-md bg-surface-container-low">
+<div class="flex flex-col gap-8">
+<div class="relative h-64 rounded-xl overflow-hidden glass-panel">
+<div class="bg-cover bg-center w-full h-full opacity-70" data-alt="A sweeping wide-angle view of a state-of-the-art metallurgical factory interior. Sparks fly from a distant automated welding station, while massive robotic arms maneuver glowing red-hot steel slabs. The environment is vast, emphasizing scale and advanced technology, with deep charcoal structural elements and brilliant orange thermal glow. Professional, dramatic industrial lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCu8Jdke8ILrwQipIB5fweekDDPeTVtF5TChcim72XewEWvZkv4pfxHosSKqlAh1rVs99f2DQ3cDYVmu8_nAp2gtEZv7rQl0nwtCnUE769edQ8nMFuFyQxCPXGbVwVd6u1SEUnTjECNX9OKx7JNjjKQCuDv_O5fuY_WsOGs1trQgbxxmZPVLUnmjooJKVlwjN2B36RgADgqzk73NHf5HOrh7jqBcAkTW380aUAlKK-lIiUwws0sMDDmGw')"></div>
+<div class="absolute bottom-4 left-4 glass-panel px-4 py-2 rounded-lg border-l-2 border-l-precision-orange">
+<span class="font-label-technical text-label-technical text-on-surface">Facility 01 - Core Forge</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<h2 class="font-label-caps text-label-caps text-precision-orange">THE BHARTIYA ADVANTAGE</h2>
+<h3 class="font-headline-md text-headline-md text-on-surface">Forging the Future Since 1985</h3>
+<p class="font-body-md text-body-md text-on-surface-variant">With over three decades of excellence, Bhartiya Steel &amp; Alloys Pvt. Ltd. stands at the vanguard of metal fabrication. Our advanced facilities and rigorous quality control protocols ensure that every sheet, pipe, and coil meets the exacting standards required by aerospace, defense, and energy sectors globally.</p>
+</div>
+</div>
+</section>
+<!-- 3. Statistics -->
+<section class="px-margin-mobile py-section-gap-md relative">
+<div class="grid grid-cols-2 gap-4">
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-2">
+<span class="material-symbols-outlined text-industrial-cobalt text-3xl">history</span>
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface">35+</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant">Years Exp.</span>
+</div>
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-2">
+<span class="material-symbols-outlined text-industrial-cobalt text-3xl">category</span>
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface">12k</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant">Products</span>
+</div>
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-2">
+<span class="material-symbols-outlined text-industrial-cobalt text-3xl">public</span>
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface">40+</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant">Countries</span>
+</div>
+<div class="glass-panel p-6 rounded-xl flex flex-col gap-2">
+<span class="material-symbols-outlined text-industrial-cobalt text-3xl">factory</span>
+<span class="font-headline-xl-mobile text-headline-xl-mobile text-on-surface">2M</span>
+<span class="font-label-technical text-label-technical text-on-surface-variant">Tons/Yr</span>
+</div>
+</div>
+</section>
+<!-- 4. Product Grid -->
+<section class="px-margin-mobile py-section-gap-md bg-surface-container-high border-t border-brushed-steel/10">
+<div class="flex flex-col gap-8">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Industrial Inventory</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Premium materials engineered for critical applications.</p>
+</div>
+<div class="grid grid-cols-1 gap-4">
+<!-- Product Card 1 -->
+<div class="metallic-gradient rounded-xl border border-brushed-steel/10 overflow-hidden group">
+<div class="h-40 relative">
+<div class="bg-cover bg-center w-full h-full opacity-60 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500" data-alt="Stacks of highly polished stainless steel sheets in a modern industrial warehouse. The lighting is pristine and cool, reflecting perfectly off the mirror-like surfaces of the metal. The composition is geometric and precise, emphasizing the flawless quality of the industrial materials. Deep charcoal background with sharp metallic highlights." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzPQOGvgaM39nHSqrEAT0StXOJC9N3UgyeIgzkVw5jY9iYf8QoBgwhTQJe1ZQEMiwukv2_-tffCMZy8q9_xWypiX-MN96d4fLHhoJPRjxS5K-Z9SZ97ZG18Rb10eZG0peJ5sqfFellP8ns5GRnFjYle2HbG5JXapDWfUoLqQjgGrBu1VgaMDDIl3aY_TXuPD0IZgniuJGjcK8rRquyorZ8hdj02USe5fA9McrJMxWaL6ig2lugg9nu2A')"></div>
+</div>
+<div class="p-6 flex flex-col gap-2">
+<span class="font-label-technical text-label-technical text-industrial-cobalt">316L / 304</span>
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold">Stainless Steel Sheets</h3>
+<button class="mt-4 self-start font-label-technical text-label-technical text-precision-orange flex items-center gap-1 hover:text-white transition-colors">
+                                View Specs <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Product Card 2 -->
+<div class="metallic-gradient rounded-xl border border-brushed-steel/10 overflow-hidden group">
+<div class="h-40 relative">
+<div class="bg-cover bg-center w-full h-full opacity-60 mix-blend-luminosity group-hover:mix-blend-normal transition-all duration-500" data-alt="Heavy industrial steel pipes stacked neatly in a vast storage yard. The perspective is looking down the hollow centers of the massive cylinders. Lighting is natural but moody, with a cool blue industrial tint. The texture of the raw metal is highly detailed, conveying strength and structural integrity." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYs-kB9Q1LB8omuChRUQHj3qlo9TITfcZHEye-OIKCMg2FZHbUNSyQcVZJqCUs_7fYcjwmFSjBrNq4ncvFECY9DWO2HEKKwrM1rCUjlt9UvIsmu7ybQuyRT0JMPPwB1KJIdT-Hix0Pe7GpN1EpZX31Je-OkZFAald8s6s1RNslq6fVF8yFMWixAWVkAD0uZl4aGOj4jsTaPJgr-lp3xBVpcU-LWp_Z6gxRXg7-l36sEwKk35VYrDGtKw')"></div>
+</div>
+<div class="p-6 flex flex-col gap-2">
+<span class="font-label-technical text-label-technical text-industrial-cobalt">SEAMLESS / WELDED</span>
+<h3 class="font-body-lg text-body-lg text-on-surface font-bold">Pipes &amp; Tubes</h3>
+<button class="mt-4 self-start font-label-technical text-label-technical text-precision-orange flex items-center gap-1 hover:text-white transition-colors">
+                                View Specs <span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</div>
+<button class="border-2 border-brushed-steel/20 text-on-surface font-label-technical text-label-technical px-8 py-4 rounded-DEFAULT w-full hover:bg-white/5 transition-colors flex justify-center items-center gap-2">
+                    View Full Catalog <span class="material-symbols-outlined">menu_book</span>
+</button>
+</div>
+</section>
+<!-- Final CTA -->
+<section class="px-margin-mobile py-section-gap-lg relative overflow-hidden bg-industrial-cobalt border-t border-brushed-steel/20">
+<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjIiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNSkiLz48L3N2Zz4=')] opacity-30"></div>
+<div class="relative z-10 flex flex-col items-center text-center gap-6">
+<span class="material-symbols-outlined text-white text-5xl">precision_manufacturing</span>
+<h2 class="font-headline-xl-mobile text-headline-xl-mobile text-white">Looking for Reliable Metal Solutions?</h2>
+<p class="font-body-md text-body-md text-primary-fixed mb-4">Our engineering team is ready to analyze your technical requirements and provide competitive quotes.</p>
+<button class="bg-background text-on-surface font-label-technical text-label-technical px-10 py-4 rounded-DEFAULT w-full flex justify-center items-center gap-2 hover:bg-surface-container transition-colors shadow-2xl">
+                    Request a Quote Today <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="py-section-gap-md px-margin-mobile md:px-gutter max-w-container-max mx-auto grid grid-cols-1 md:grid-cols-4 gap-gutter bg-surface-container-lowest dark:bg-surface-container-lowest w-full border-t border-brushed-steel/10">
+<div class="flex flex-col gap-4">
+<div class="font-headline-md text-headline-md text-on-surface font-extrabold tracking-tighter">BHARTIYA STEEL &amp; ALLOYS</div>
+<p class="font-label-technical text-label-technical text-on-tertiary-container">© 2024 Bhartiya Steel &amp; Alloys Pvt. Ltd. Precision Engineered.</p>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-label-technical text-label-technical text-on-tertiary-container hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Material Safety Data</a>
+<a class="font-label-technical text-label-technical text-on-tertiary-container hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">ISO Certifications</a>
+<a class="font-label-technical text-label-technical text-on-tertiary-container hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Terms of Sale</a>
+<a class="font-label-technical text-label-technical text-on-tertiary-container hover:text-primary transition-colors opacity-80 hover:opacity-100" href="#">Career Portal</a>
+</div>
+</footer>
+
+
+
+
+
+
+</body></html>
