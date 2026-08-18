@@ -21,7 +21,7 @@ function App() {
           <ScrollToTop />
           <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-50 selection:bg-[#ff5722] selection:text-white transition-colors duration-300">
           <Navbar />
-          <main className="flex-1 w-full mt-[76px]">
+          <main className="flex-1 w-full pt-[76px]">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />

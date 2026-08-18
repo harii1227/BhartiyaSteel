@@ -145,7 +145,8 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
             transition={{ duration: 0.2, ease: "easeOut" }}
-            className="lg:hidden absolute top-full left-0 w-full h-[calc(100vh-100%)] bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800/80 z-50 overflow-y-auto px-6 py-6 flex flex-col justify-between transition-colors duration-300"
+            data-lenis-prevent
+            className={`lg:hidden absolute top-full left-0 w-full ${isScrolled ? 'h-[calc(100vh-64px)]' : 'h-[calc(100vh-73px)]'} bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800/80 z-50 overflow-y-auto px-6 py-6 flex flex-col justify-between transition-colors duration-300`}
           >
             <div className="flex flex-col gap-5">
               <Link
