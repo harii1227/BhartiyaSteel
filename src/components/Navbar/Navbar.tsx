@@ -1,12 +1,15 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, Sun, Moon } from 'lucide-react';
+import { Menu, X, Sun, Moon, ChevronDown, ChevronUp } from 'lucide-react';
 import { megaMenuData } from '../../data/productsData';
 import { useTheme } from '../../context/ThemeContext';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [mobileActiveSubcategory, setMobileActiveSubcategory] = useState<number | null>(null);
   const [megaMenuHoverable, setMegaMenuHoverable] = useState(true);
   const location = useLocation();
   const { theme, setTheme } = useTheme();
@@ -16,6 +19,25 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+    setMobileProductsOpen(false);
+    setMobileActiveSubcategory(null);
+  }, [location]);
+
+  // Lock scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
 
   const handleProductClick = () => {
     setMegaMenuHoverable(false);
@@ -114,6 +136,124 @@ const Navbar = () => {
           </button>
         </div>
       </div>
+
+      {/* Mobile Menu Panel */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -15 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -15 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="lg:hidden absolute top-full left-0 w-full h-[calc(100vh-100%)] bg-white dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800/80 z-50 overflow-y-auto px-6 py-6 flex flex-col justify-between transition-colors duration-300"
+          >
+            <div className="flex flex-col gap-5">
+              <Link
+                to="/"
+                className={`text-lg font-bold transition-colors pb-2 border-b border-slate-100 dark:border-slate-800/50 ${location.pathname === '/' ? 'text-[#ff5722]' : 'text-slate-700 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722]'}`}
+              >
+                Home
+              </Link>
+              
+              <Link
+                to="/about"
+                className={`text-lg font-bold transition-colors pb-2 border-b border-slate-100 dark:border-slate-800/50 ${location.pathname === '/about' ? 'text-[#ff5722]' : 'text-slate-700 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722]'}`}
+              >
+                About
+              </Link>
+              
+              {/* Products Accordion */}
+              <div className="flex flex-col border-b border-slate-100 dark:border-slate-800/50 pb-2">
+                <button
+                  onClick={() => setMobileProductsOpen(!mobileProductsOpen)}
+                  className="flex items-center justify-between text-lg font-bold text-slate-700 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722] w-full text-left"
+                >
+                  <span>Products</span>
+                  {mobileProductsOpen ? <ChevronUp size={20} className="text-[#ff5722]" /> : <ChevronDown size={20} />}
+                </button>
+                
+                <AnimatePresence>
+                  {mobileProductsOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, height: 0 }}
+                      animate={{ opacity: 1, height: "auto" }}
+                      exit={{ opacity: 0, height: 0 }}
+                      className="overflow-hidden pl-3 mt-3 flex flex-col gap-3"
+                    >
+                      <Link
+                        to="/products"
+                        onClick={handleProductClick}
+                        className="text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-[#ff5722] dark:hover:text-[#ff5722]"
+                      >
+                        View All Products Catalog
+                      </Link>
+
+                      {megaMenuData.map((category, catIdx) => {
+                        const isSubActive = mobileActiveSubcategory === catIdx;
+                        return (
+                          <div key={catIdx} className="flex flex-col gap-1.5 mt-1">
+                            <button
+                              onClick={() => setMobileActiveSubcategory(isSubActive ? null : catIdx)}
+                              className="flex items-center justify-between text-[15px] font-bold text-slate-600 dark:text-slate-400 hover:text-[#ff5722] dark:hover:text-[#ff5722] text-left w-full"
+                            >
+                              <span>{category.title}</span>
+                              {isSubActive ? <ChevronUp size={16} className="text-[#ff5722]" /> : <ChevronDown size={16} />}
+                            </button>
+                            
+                            {isSubActive && (
+                              <div className="flex flex-col gap-1 pl-3 border-l border-slate-200 dark:border-slate-800 mt-1">
+                                {category.sections.map((section, secIdx) => (
+                                  <div key={secIdx} className="flex flex-col gap-1 mt-1 mb-2">
+                                    <span className="text-[11px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider">{section.title}</span>
+                                    {section.items.map(item => (
+                                      <Link
+                                        key={item.id}
+                                        to={`/products/${item.id}`}
+                                        onClick={handleProductClick}
+                                        className="text-sm font-semibold text-slate-700 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722] py-1"
+                                      >
+                                        {item.name}
+                                      </Link>
+                                    ))}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+              </div>
+
+              <Link
+                to="/certificates"
+                className={`text-lg font-bold transition-colors pb-2 border-b border-slate-100 dark:border-slate-800/50 ${location.pathname === '/certificates' ? 'text-[#ff5722]' : 'text-slate-700 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722]'}`}
+              >
+                Certificates
+              </Link>
+              
+              <Link
+                to="/contact"
+                className={`text-lg font-bold transition-colors pb-2 border-b border-slate-100 dark:border-slate-800/50 ${location.pathname === '/contact' ? 'text-[#ff5722]' : 'text-slate-700 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722]'}`}
+              >
+                Contact
+              </Link>
+            </div>
+
+            <div className="mt-8 flex flex-col gap-4">
+              <Link 
+                to="/contact" 
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full text-center bg-[#ff5722] hover:bg-[#e64a19] text-white text-base font-bold py-3 px-5 rounded-full shadow-lg shadow-[#ff5722]/30 transition-all hover:scale-[1.02]"
+              >
+                Request Quote
+              </Link>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 };
