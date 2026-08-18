@@ -206,9 +206,9 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-8 transition-colors duration-300"
+            className="bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-3xl p-5 sm:p-8 transition-colors duration-300"
           >
-            <div className="flex flex-wrap gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
               {[
                 { title: "201", sub: "201 Stainless Steel" }, { title: "202", sub: "202 Stainless Steel" },
                 { title: "303", sub: "303 Stainless Steel" }, { title: "304", sub: "304 Stainless Steel" },
@@ -218,7 +218,7 @@ const Home = () => {
                 { title: "409L", sub: "409L Stainless Steel" }, { title: "410", sub: "410 Stainless Steel" },
                 { title: "430", sub: "430 Stainless Steel" }
               ].map((grade, idx) => (
-                <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-4 flex flex-col min-w-[140px] hover:border-[#ff5722] dark:hover:border-[#ff5722] hover:shadow-md transition-all cursor-pointer">
+                <div key={idx} className="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-4 flex flex-col hover:border-[#ff5722] dark:hover:border-[#ff5722] hover:shadow-md transition-all cursor-pointer">
                   <span className="font-bold text-slate-900 dark:text-white text-lg transition-colors">{grade.title}</span>
                   <span className="text-xs text-slate-500 dark:text-slate-400 transition-colors">{grade.sub}</span>
                 </div>
