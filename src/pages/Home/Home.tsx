@@ -1,9 +1,16 @@
 import { ArrowRight, ShieldCheck, Factory, Globe } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { motion, useScroll, useTransform, animate, useInView } from 'framer-motion';
+import { motion, useScroll, useTransform, animate, useInView, type Variants } from 'framer-motion';
 import { useEffect, useState, useRef } from 'react';
 
-const AnimatedCounter = ({ from = 0, to, suffix = "", text = "" }) => {
+interface AnimatedCounterProps {
+  from?: number;
+  to?: number;
+  suffix?: string;
+  text?: string;
+}
+
+const AnimatedCounter = ({ from = 0, to, suffix = "", text = "" }: AnimatedCounterProps) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
   const [count, setCount] = useState(from);
@@ -42,7 +49,7 @@ const Home = () => {
   const heroY = useTransform(scrollY, [0, 800], [0, 250]);
   const heroOpacity = useTransform(scrollY, [0, 600], [1, 0]);
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
@@ -53,7 +60,7 @@ const Home = () => {
     }
   };
 
-  const itemVariants = {
+  const itemVariants: Variants = {
     hidden: { opacity: 0, y: 30 },
     visible: {
       opacity: 1,

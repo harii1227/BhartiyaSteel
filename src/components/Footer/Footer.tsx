@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Hexagon, Mail, Phone, MapPin, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 
 const Footer = () => {
   return (
