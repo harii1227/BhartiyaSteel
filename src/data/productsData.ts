@@ -139,7 +139,8 @@ const generateProductData = (name: string, categoryTitle: string) => {
     description: desc,
     image,
     features,
-    specs
+    specs,
+    category: categoryTitle
   };
 };
 

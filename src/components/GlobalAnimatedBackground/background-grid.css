@@ -1,0 +1,134 @@
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+.hero-vignette {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 140% 80% at 50% -10%, rgba(46, 196, 210, 0.06), transparent 60%),
+    linear-gradient(180deg, #0d1220 0%, #090d16 45%, #05080e 100%);
+  transition: background 0.3s ease;
+}
+.grid-back {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background-image:
+    linear-gradient(to right, rgba(46, 196, 210, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 196, 210, 0.05) 1px, transparent 1px);
+  background-size: 100px 100px;
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 38%, #000 20%, transparent 80%);
+  -webkit-mask-image: radial-gradient(ellipse 90% 70% at 50% 38%, #000 20%, transparent 80%);
+}
+.perspective-stage {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  perspective: 1800px;
+  perspective-origin: 50% 28%;
+  overflow: hidden;
+}
+.grid-floor {
+  position: absolute;
+  left: -20%;
+  right: -20%;
+  bottom: -15%;
+  height: 110%;
+  transform-origin: 50% 100%;
+  transform: rotateX(62deg) translateZ(0);
+  background-image:
+    linear-gradient(to right, rgba(46, 196, 210, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 196, 210, 0.18) 1px, transparent 1px);
+  background-size: 480px 480px;
+  mask-image: radial-gradient(ellipse 75% 60% at 50% 22%, #000 15%, transparent 72%);
+  -webkit-mask-image: radial-gradient(ellipse 75% 60% at 50% 22%, #000 15%, transparent 72%);
+}
+.grid-fore {
+  position: absolute;
+  left: -25%;
+  right: -25%;
+  bottom: -20%;
+  height: 80%;
+  transform-origin: 50% 100%;
+  transform: rotateX(68deg) translateZ(0);
+  z-index: 4;
+  background-image:
+    linear-gradient(to right, rgba(46, 196, 210, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(46, 196, 210, 0.08) 1px, transparent 1px);
+  background-size: 96px 96px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 15%, #000 10%, transparent 65%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 15%, #000 10%, transparent 65%);
+  opacity: 0.7;
+}
+.flow-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 1px;
+  z-index: 5;
+}
+.flow-line::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(46, 196, 210, 0.4) 50%, transparent 100%);
+  background-size: 380px 100%;
+  animation: flow-sweep 22s linear infinite;
+}
+@keyframes flow-sweep {
+  0% { background-position: -400px 0; }
+  100% { background-position: calc(100vw + 400px) 0; }
+}
+.hero-mouse-light {
+  position: absolute;
+  inset: 0;
+  z-index: 7;
+  pointer-events: none;
+  background: radial-gradient(circle 450px at calc(var(--mx, 50%) * 1%) calc(var(--my, 40%) * 1%), rgba(46, 196, 210, 0.07), transparent 65%);
+}
+.hero-top-fade {
+  position: absolute; left: 0; right: 0; top: 0; height: 25%; z-index: 8;
+  background: linear-gradient(180deg, rgba(6, 9, 15, 0.95) 0%, transparent 100%);
+}
+.hero-bottom-fade {
+  position: absolute; left: 0; right: 0; bottom: 0; height: 30%; z-index: 8;
+  background: linear-gradient(0deg, rgba(6, 9, 15, 1) 0%, transparent 100%);
+}
+
+/* Light Theme overrides */
+html:not(.dark) .hero-vignette {
+  background:
+    radial-gradient(ellipse 140% 80% at 50% -10%, rgba(255, 87, 34, 0.08), transparent 60%),
+    linear-gradient(180deg, #f8fafc 0%, #f1f5f9 45%, #e2e8f0 100%);
+}
+html:not(.dark) .grid-back {
+  background-image:
+    linear-gradient(to right, rgba(255, 87, 34, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 87, 34, 0.05) 1px, transparent 1px);
+}
+html:not(.dark) .grid-floor {
+  background-image:
+    linear-gradient(to right, rgba(255, 87, 34, 0.18) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 87, 34, 0.18) 1px, transparent 1px);
+}
+html:not(.dark) .grid-fore {
+  background-image:
+    linear-gradient(to right, rgba(255, 87, 34, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 87, 34, 0.08) 1px, transparent 1px);
+}
+html:not(.dark) .flow-line::before {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 87, 34, 0.4) 50%, transparent 100%);
+}
+html:not(.dark) .hero-mouse-light {
+  background: radial-gradient(circle 450px at calc(var(--mx, 50%) * 1%) calc(var(--my, 40%) * 1%), rgba(255, 87, 34, 0.08), transparent 65%);
+}
+html:not(.dark) .hero-top-fade {
+  background: linear-gradient(180deg, rgba(248, 250, 252, 0.95) 0%, transparent 100%);
+}
+html:not(.dark) .hero-bottom-fade {
+  background: linear-gradient(0deg, rgba(248, 250, 252, 1) 0%, transparent 100%);
+}

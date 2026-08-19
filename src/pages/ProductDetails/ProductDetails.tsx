@@ -23,9 +23,9 @@ const ProductDetails = () => {
   }
 
   return (
-    <div className="flex flex-col w-full bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-300">
+    <div className="flex flex-col w-full bg-transparent min-h-screen pb-20 transition-colors duration-300">
       {/* Product Hero */}
-      <section className="relative h-[40vh] md:h-[50vh] flex items-center pt-16 overflow-hidden">
+      <section className="relative min-h-[35vh] md:h-[50vh] flex items-center pt-24 pb-16 md:pt-16 md:pb-0 overflow-hidden">
         <div 
           className="absolute inset-0 bg-cover bg-center z-0"
           style={{ backgroundImage: `url(${product.image})` }}
@@ -33,33 +33,33 @@ const ProductDetails = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/70 to-transparent z-10"></div>
         
         <div className="relative z-20 max-w-7xl mx-auto px-6 w-full text-left">
-          <Link to="/products" className="inline-flex items-center gap-2 text-white/70 hover:text-white font-medium mb-6 transition-colors">
+          <Link to="/products" className="inline-flex items-center gap-2 text-white/70 hover:text-white font-medium mb-4 md:mb-6 transition-colors">
             <ArrowLeft size={16} /> Back to all products
           </Link>
-          <h1 className="text-4xl md:text-5xl font-black text-white mb-4">{product.title}</h1>
-          <p className="text-lg text-white/80 max-w-2xl">{product.description}</p>
+          <h1 className="text-3xl md:text-5xl font-black text-white mb-4 leading-tight">{product.title}</h1>
+          <p className="text-base md:text-lg text-white/80 max-w-2xl leading-relaxed">{product.description}</p>
         </div>
       </section>
 
       {/* Main Content */}
-      <section className="max-w-7xl mx-auto px-6 py-12 w-full -mt-10 relative z-30">
+      <section className="max-w-7xl mx-auto px-4 md:px-6 py-8 md:py-12 w-full -mt-6 md:-mt-10 relative z-30">
         <div className="flex flex-col lg:flex-row gap-8">
           
           {/* Features & Description */}
-          <div className="flex-1 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 md:p-10 transition-colors duration-300">
-            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 transition-colors">Overview</h2>
-            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-lg mb-10 transition-colors">
+          <div className="flex-1 bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 md:p-10 transition-colors duration-300">
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6 transition-colors">Overview</h2>
+            <p className="text-slate-600 dark:text-slate-400 leading-relaxed text-base md:text-lg mb-8 md:mb-10 transition-colors">
               Our {product.title.toLowerCase()} are manufactured to meet the highest industry standards, ensuring maximum performance and reliability in demanding environments. Bhartiya Alloy Steel guarantees precise tolerances, excellent surface finish, and strictly tested chemical compositions for every batch dispatched.
             </p>
             
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 transition-colors">Key Features</h3>
-            <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6 transition-colors">Key Features</h3>
+            <ul className="grid grid-cols-1 md:grid-cols-2 gap-3.5">
               {product.features.map((feature: string, idx: number) => (
-                <li key={idx} className="flex items-center gap-3 bg-slate-50 dark:bg-slate-800 p-4 rounded-xl border border-slate-100 dark:border-slate-700 transition-colors duration-300">
+                <li key={idx} className="flex items-center gap-3 bg-slate-50 dark:bg-slate-800 p-3.5 rounded-xl border border-slate-100 dark:border-slate-700 transition-colors duration-300">
                   <div className="flex-shrink-0 w-8 h-8 rounded-full bg-[#ff5722]/10 flex items-center justify-center text-[#ff5722]">
                     <Check size={16} strokeWidth={3} />
                   </div>
-                  <span className="font-medium text-slate-700 dark:text-slate-300 transition-colors">{feature}</span>
+                  <span className="font-medium text-slate-700 dark:text-slate-300 text-sm md:text-base transition-colors">{feature}</span>
                 </li>
               ))}
             </ul>
@@ -67,14 +67,14 @@ const ProductDetails = () => {
 
           {/* Technical Specifications */}
           <div className="w-full lg:w-[400px] shrink-0">
-            <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-8 sticky top-28 transition-colors duration-300">
-              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-6 pb-4 border-b border-slate-100 dark:border-slate-800 transition-colors">Technical Specifications</h3>
+            <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-800 p-5 md:p-8 sticky top-28 transition-colors duration-300">
+              <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4 md:mb-6 pb-4 border-b border-slate-100 dark:border-slate-800 transition-colors">Technical Specifications</h3>
               
-              <div className="flex flex-col gap-4 mb-8">
+              <div className="flex flex-col gap-3.5 mb-6 md:mb-8">
                 {product.specs.map((spec: { label: string, value: string }, idx: number) => (
                   <div key={idx} className="flex justify-between items-center py-2 border-b border-slate-50 dark:border-slate-800/50 last:border-0 transition-colors">
                     <span className="text-slate-500 dark:text-slate-400 text-sm transition-colors">{spec.label}</span>
-                    <span className="font-bold text-slate-800 dark:text-slate-200 text-right max-w-[60%] transition-colors">{spec.value}</span>
+                    <span className="font-bold text-slate-800 dark:text-slate-200 text-sm md:text-base text-right max-w-[60%] transition-colors">{spec.value}</span>
                   </div>
                 ))}
               </div>

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
-    <div className="flex flex-col w-full bg-slate-50 dark:bg-slate-950 min-h-screen pb-20 transition-colors duration-300">
+    <div className="flex flex-col w-full bg-transparent min-h-screen pb-20 transition-colors duration-300">
       {/* Page Header */}
-      <section className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 py-16 transition-colors duration-300">
+      <section className="bg-transparent border-b border-slate-200 dark:border-slate-800 py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white mb-4 transition-colors">
             About <span className="text-[#ff5722]">Us</span>

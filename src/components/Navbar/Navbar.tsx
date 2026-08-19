@@ -115,6 +115,12 @@ const Navbar = () => {
 
           <Link to="/certificates" className={`text-base font-bold transition-colors ${location.pathname === '/certificates' ? 'text-[#ff5722]' : 'text-slate-600 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722]'}`}>Certificates</Link>
           <Link to="/contact" className={`text-base font-bold transition-colors ${location.pathname === '/contact' ? 'text-[#ff5722]' : 'text-slate-600 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722]'}`}>Contact</Link>
+          <button 
+            onClick={() => window.dispatchEvent(new CustomEvent("open-steelai"))}
+            className="text-base font-bold text-slate-600 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722] transition-colors"
+          >
+            Ask SteelAI
+          </button>
         </nav>
         
         <div className="flex items-center gap-4">
@@ -241,6 +247,16 @@ const Navbar = () => {
               >
                 Contact
               </Link>
+
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  window.dispatchEvent(new CustomEvent("open-steelai"));
+                }}
+                className="text-lg font-bold text-slate-700 dark:text-slate-300 hover:text-[#ff5722] dark:hover:text-[#ff5722] text-left pb-2 border-b border-slate-100 dark:border-slate-800/50 w-full"
+              >
+                Ask SteelAI
+              </button>
             </div>
 
             <div className="mt-8 flex flex-col gap-4">

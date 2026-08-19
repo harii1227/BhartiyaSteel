@@ -148,18 +148,18 @@ const gradesData = [
 
 const Grades = () => {
   return (
-    <div className="flex flex-col w-full bg-slate-50 dark:bg-slate-950 min-h-screen pt-20 pb-24 transition-colors duration-300">
-      <div className="max-w-7xl mx-auto px-6 w-full">
+    <div className="flex flex-col w-full bg-transparent min-h-screen pt-16 pb-16 md:pt-20 md:pb-24 transition-colors duration-300">
+      <div className="max-w-7xl mx-auto px-4 md:px-6 w-full">
         
         {/* Header */}
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16 pt-12"
+          className="text-center mb-8 md:mb-16 pt-6 md:pt-12"
         >
-          <h1 className="text-4xl md:text-5xl font-black text-[#111827] dark:text-white mb-4 transition-colors">Stainless Steel Grades</h1>
-          <p className="text-slate-600 dark:text-slate-400 text-lg max-w-2xl mx-auto transition-colors">Comprehensive overview of available stainless steel grades</p>
+          <h1 className="text-3xl md:text-5xl font-black text-[#111827] dark:text-white mb-4 transition-colors">Stainless Steel Grades</h1>
+          <p className="text-slate-600 dark:text-slate-400 text-base md:text-lg max-w-2xl mx-auto transition-colors">Comprehensive overview of available stainless steel grades</p>
         </motion.div>
 
         {/* Grid */}
@@ -172,7 +172,7 @@ const Grades = () => {
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: (idx % 3) * 0.1 }}
               whileHover={{ y: -4, boxShadow: "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)" }}
-              className="bg-white dark:bg-slate-900 rounded-2xl p-8 border border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-300 flex flex-col h-full cursor-default"
+              className="bg-white dark:bg-slate-900 rounded-2xl p-5 md:p-8 border border-slate-200 dark:border-slate-800 shadow-sm transition-all duration-300 flex flex-col h-full cursor-default"
             >
               {/* Title & Badge */}
               <div className="flex justify-between items-start mb-3 gap-4">
